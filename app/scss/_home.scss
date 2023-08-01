@@ -1,0 +1,18 @@
+.canvas-cont {
+  //filter: brightness(0.8) grayscale(0.57);
+  position: relative;
+  background: #9E1F63;
+  filter: brightness(1.3);
+  canvas {
+    mix-blend-mode: multiply;
+    filter: grayscale(1);
+  }
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+  }
+}
