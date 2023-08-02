@@ -409,7 +409,14 @@ body {
   clip-path: url(#shape-mask);
 
 }
-
+body {
+  //-webkit-clip-path: url(#shape-mask);
+  //mask-image: url('../img/mask-test.svg');
+  //mask-size: 100%;
+  //mask-position: 0 0;
+  //-webkit-mask-attachment: fixed;
+  //mask-repeat: no-repeat;
+}
 .home-hero {
   position: absolute;
   top: 0;
