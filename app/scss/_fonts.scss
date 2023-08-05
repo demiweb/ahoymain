@@ -2,7 +2,10 @@
 @font-face {
   font-family: 'RUBBERNECK';
   src: local("RUBBERNECK"), local("RUBBERNECK"),
-  url('../fonts/RUBBERNECK.ttf');
+  url('../fonts/RUBBERNECK.ttf'),
+  url('../fonts/RUBBERNECK.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
+
+
