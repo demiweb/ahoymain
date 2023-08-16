@@ -13,6 +13,55 @@ function allLozadImg() {
 
 allLozadImg();
 
+
+// scroll animations
+var anim = document.querySelectorAll('.anim')
+
+function scrollAnimations() {
+    if (anim.length) {
+        var observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                var el = entry.target;
+                if (entry.isIntersecting) {
+                    if (el.classList.contains('anim-js')) {
+
+                    } else {
+                        el.style.animationDelay = el.dataset.animDelay + 'ms';
+                        el.style.animationDuration = el.dataset.animDuration + 'ms';
+                        el.style.animationName = el.dataset.anim;
+                    }
+                    el.classList.add('done');
+
+
+
+
+
+                } else {
+                    el.classList.remove('done');
+                }
+
+            })
+        }, {threshold: .5});
+        if (window.innerWidth > 991) {
+            anim.forEach(animate => {
+                observer.observe(animate)
+            })
+        } else {
+
+            anim.forEach(animate => {
+
+                observer.observe(animate)
+
+
+            })
+        }
+    }
+}
+
+scrollAnimations();
+
+//
+
 let canvasBlock = document.querySelector('.canvas-cont');
 
 function ifHaveCanvasBlock() {
@@ -150,17 +199,6 @@ var scene2 = new ScrollMagic.Scene({triggerElement: ".trigger-clipp", duration: 
 // .addTo(controller);
 
 
-//
-// var tl = gsap.timeline({onUpdate:updateSlider, defaults: {duration: 1}}),
-//     circle = document.getElementById("circle");
-//
-// tl.to(circle, {morphSVG:"#hippo"}, "+=1")
-//     .to(circle, {morphSVG:"#star"}, "+=1")
-//     .to(circle, {morphSVG:"#elephant"}, "+=1")
-//     .to(circle, {morphSVG:circle}, "+=1");
-
-// gsap.to()... infinity and beyond!
-// To learn how to use GSAP, go to greensock.com/get-started
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -195,10 +233,10 @@ tl3.to(circle2, {
 
 
 //slider circle
-let allSLides = [...document.querySelectorAll('.single-slide')];
+let allSLides = [...document.querySelectorAll('.turtle-slider .single-slide')];
 let allArrows = [...document.querySelectorAll('.our-clients__right .slick-arrow')];
-let allSLidesPrevs = [...document.querySelectorAll('.single-slide.prev')];
-let allSLidesNext = [...document.querySelectorAll('.single-slide.next')];
+let allSLidesPrevs = [...document.querySelectorAll('.our-clients__right .single-slide.prev')];
+let allSLidesNext = [...document.querySelectorAll('.our-clients__right .single-slide.next')];
 let needSlides = 16;
 function addMoreSlides() {
     if (allSLides.length) {
@@ -214,7 +252,7 @@ function addMoreSlides() {
                 var clone = btn.cloneNode(true);
                 clone.classList.add('clone');
                 btn.closest('.slides-dot').appendChild(clone);
-                allSLides = [...document.querySelectorAll('.single-slide')];
+                allSLides = [...document.querySelectorAll('.turtle-slider .single-slide')];
                 lof = allSLides.length;
             }
 
@@ -312,12 +350,13 @@ let step = 360 / allSLides.length;
 function getAllSlides() {
     if (allSLides.length) {
         allSLides.forEach((btn, k) => {
+            // console.log(btn);
             btn.dataset.number = k;
             let activeAngle = -90;
 
             let other2 = activeAngle - (step * k);
 
-
+// console.log(btn.closest('.turtle-slider'));
             let radius = btn.closest('.turtle-slider').offsetWidth / 2;
             let inRads = other2 * (Math.PI / 180);
 
@@ -508,48 +547,115 @@ clickArrows();
 let productSlider = [...document.querySelectorAll('.our-clients__right')];
 let slcSlider2 = '';
 
-function startProductSlider() {
-    if (!productSlider.length) {
+
+
+
+// soc hovs
+
+let socHovs = [...document.querySelectorAll('.footer-bot__socials .single-footer-soc')];
+
+function hoverSocials() {
+    if (socHovs.length) {
+        socHovs.forEach((btn) => {
+            let hov = btn.dataset.hov;
+            let unhov = btn.dataset.unhov;
+            let im = btn.querySelector('img');
+
+            btn.addEventListener('mouseover', () => {
+                im.src = hov;
+            });
+            btn.addEventListener('touchstart', () => {
+                im.src = hov;
+            });
+            btn.addEventListener('mouseout', () => {
+                im.src = unhov;
+            });
+            btn.addEventListener('touchend', () => {
+                im.src = unhov;
+            });
+        })
+    }
+}
+hoverSocials();
+
+// scroll to home
+
+
+let fixedMenus = [...document.querySelectorAll('.fixed-menu-home li a')];
+
+function scrollFixedMenu() {
+    if (fixedMenus.length) {
+        fixedMenus.forEach((bt) => {
+            let dataItem = bt.dataset.lnk;
+            bt.addEventListener('click', (e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                $([document.documentElement, document.body]).animate({
+                    scrollTop: $(`.${dataItem}`).offset().top
+                }, 500);
+            });
+
+        })
+
+
+    }
+}
+
+scrollFixedMenu();
+
+
+
+let homeSwiperTurtle = [...document.querySelectorAll('.our-clients__swiper')];
+
+function startHomeTurtle() {
+    if (!homeSwiperTurtle.length) {
 
     } else {
-        productSlider.forEach((sld) => {
-            let sldCont = sld.querySelector('.turtle-slider .slides-dot');
-            slcSlider2 = sldCont;
-            let pagin = sld.querySelector('.dots');
+
+
+        homeSwiperTurtle.forEach((sld) => {
+            let sldCont = sld.querySelector('.swiper');
             let sldNext = sld.querySelector('.slick-next');
             let sldPrev = sld.querySelector('.slick-prev');
-            $(sldCont).slick({
-                infinite: true,
-                slidesToShow: 5,
-                slidesToScroll: 1,
-                prevArrow: sldPrev,
-                nextArrow: sldNext,
-                lazyLoad: 'progressive',
-                dots: true,
-                dotsClass: 'dots',
-                vertical: false,
-                spaceBetween: 30,
-                centerMode: true,
-                responsive: [
-                    {
-                        breakpoint: 768,
-                        settings: {
-                            slidesToShow: 1,
-                            slidesToScroll: 1,
-                            infinite: true,
-                            dots: true,
-                            vertical: true,
-                            verticalSwiping: true,
-                            spaceBetween: 10,
-                        }
-                    },
-                ]
+
+            const swiper2 = new Swiper(sldCont, {
+                // Optional parameters
+                loop: false,
+                slidesPerView: 1,
+                slidesPerGroup: 1,
+                speed: 700,
+                centeredSlides: false,
+                touchRatio: 1,
+                touchAngle: 180,
+                simulateTouch: true,
+
+                followFinger: true,
+                allowTouchMove: true,
+                threshold: true,
+                touchMoveStopPropagation: true,
+                touchStartPreventDefault: true,
+                touchStartForcePreventDefault: true,
+                touchReleaseOnEdges: true,
+
+                resistance: true,
+                resistanceRatio: 0.3,
+                cssMode: false,
+                initialSlide: 2,
+                navigation: {
+                    nextEl: sldNext,
+                    prevEl: sldPrev,
+                },
+                autoplay: false,
+                spaceBetween: 25,
+
+
+
             });
+
+
         })
 
     }
 }
 
-// startProductSlider();
-
-
+startHomeTurtle();
