@@ -322,28 +322,41 @@
                 </div>
                 <div class="our-memberships__list">
 
-                    <div class="single-member">
+                    <div class="single-member" data-hat="1">
+                        <div class="single-member__photo">
+                            <div class="img">
+                                <img src="./img/planet1.svg" alt="">
+                            </div>
+
+                        </div>
+
+                        <div class="text">
+                            <span>Eyal Perkovski</span>
+                            <p>Founder and Dreamer</p>
+                        </div>
+                    </div>
+                    <div class="single-member" data-hat="2">
                         <div class="single-member__photo">
                             <div class="img">
                                 <img src="" alt="">
                             </div>
 
                         </div>
+                        <div class="text">
+                            <span>Eyal Perkovski</span>
+                            <p>Founder and Dreamer</p>
+                        </div>
                     </div>
-                    <div class="single-member">
+                    <div class="single-member" data-hat="3">
                         <div class="single-member__photo">
                             <div class="img">
                                 <img src="" alt="">
                             </div>
 
                         </div>
-                    </div>
-                    <div class="single-member">
-                        <div class="single-member__photo">
-                            <div class="img">
-                                <img src="" alt="">
-                            </div>
-
+                        <div class="text">
+                            <span>Eyal Perkovski</span>
+                            <p>Founder and Dreamer</p>
                         </div>
                     </div>
 
@@ -370,6 +383,7 @@
     vec4 mvPosition = modelViewMatrix * vec4(position, 1.5 );
     gl_Position = projectionMatrix * mvPosition;
   }
+
 
 
 
@@ -456,6 +470,7 @@ void main(){
   }
     gl_FragColor = vec4(cl, 1.0);
 }
+
 
 
 

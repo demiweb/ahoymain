@@ -3034,10 +3034,10 @@ body {
   .img {
     position: absolute;
     top: 54px;
-    left: 53px;
-    width: 72.4%;
+    left: 54px;
+    width: 71.7%;
     height: 0;
-    padding-top: 72.45%;
+    padding-top: 71.75%;
 
     overflow: hidden;
     mask-image: url("../img/mask-member.png");
@@ -3052,6 +3052,14 @@ body {
       position: absolute;
       top: 0;
       left: 0;
+
+      width: 200%;
+      height: 200%;
+      -o-object-fit: cover;
+      object-fit: cover;
+      position: absolute;
+      top: -25%;
+      left: -55%;
     }
   }
 
@@ -3071,6 +3079,33 @@ body {
   &:nth-child(2) {
     margin-right: 120px;
   }
+
+  .text {
+    width: 100%;
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    span {
+      font-weight: 300;
+      font-size: 20px;
+      line-height: 25px;
+      text-align: center;
+      color: #000;
+      display: inline-block;
+      margin-bottom: 0;
+    }
+
+    p {
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 25px;
+      text-align: center;
+      color: #000;
+    }
+  }
 }
 
 .our-memberships__list {
@@ -3079,7 +3114,7 @@ body {
   align-items: stretch;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 60px;
+  gap: 41px 60px;
   padding-left: 330px;
   padding-right: 330px;
   margin-top: 71px;
@@ -3134,3 +3169,4 @@ body {
     }
   }
 }
+
