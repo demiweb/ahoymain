@@ -33,9 +33,6 @@ function scrollAnimations() {
                     el.classList.add('done');
 
 
-
-
-
                 } else {
                     el.classList.remove('done');
                 }
@@ -182,54 +179,59 @@ burgerControl();
 
 var controller = new ScrollMagic.Controller();
 
-var scene2 = new ScrollMagic.Scene({triggerElement: ".trigger-clipp", duration: '60%'})
-    // animate color and top border in relation to scroll position
-    .setTween(".star-big", {
-        marginLeft: "0",
-        rotation: 13,
-        opacity: 1,
-        bottom: "30vh",
-        right: "32.5625vw",
-        width: "2.6042vw",
-        height: "2.6042vw",
-        filter: "blur(5px)",
-        ease: Linear.easeNone,
-    }) // the tween durtion can be omitted and defaults to 1
-    .addIndicators({name: "star (duration: 70%)"}) // add indicators (requires plugin)
+function gsapIf() {
+    if (document.querySelector('.trigger-clipp')) {
+        var scene2 = new ScrollMagic.Scene({triggerElement: ".trigger-clipp", duration: '60%'})
+            // animate color and top border in relation to scroll position
+            .setTween(".star-big", {
+                marginLeft: "0",
+                rotation: 13,
+                opacity: 1,
+                bottom: "30vh",
+                right: "32.5625vw",
+                width: "2.6042vw",
+                height: "2.6042vw",
+                filter: "blur(5px)",
+                ease: Linear.easeNone,
+            }) // the tween durtion can be omitted and defaults to 1
+            .addIndicators({name: "star (duration: 70%)"}) // add indicators (requires plugin)
 // .addTo(controller);
 
 
+        gsap.registerPlugin(ScrollTrigger);
 
-gsap.registerPlugin(ScrollTrigger);
+        var tl2 = gsap.timeline();
+        circle = document.getElementById("circle1");
 
-var tl2 = gsap.timeline();
-circle = document.getElementById("circle1");
+        tl2.to(circle, {
+            morphSVG: "#isl1",
+            duration: 1,
+            scrollTrigger: {
+                trigger: ".trigger-clipp",
+                markers: true,
+                scrub: true,
+                start: "top top",
+            }
+        }, "+=1");
 
-tl2.to(circle, {
-    morphSVG: "#isl1",
-    duration: 1,
-    scrollTrigger: {
-        trigger: ".trigger-clipp",
-        markers: true,
-        scrub: true,
-        start: "top top",
+        var tl3 = gsap.timeline();
+
+        circle2 = document.getElementById("crs1");
+
+        tl3.to(circle2, {
+            morphSVG: "#crs2",
+            duration: 10,
+            scrollTrigger: {
+                trigger: ".home-main-block",
+                markers: true,
+                scrub: true,
+                start: "top top",
+            }
+        }, "+=1");
     }
-}, "+=1");
+}
 
-var tl3 = gsap.timeline();
-
-circle2 = document.getElementById("crs1");
-
-tl3.to(circle2, {
-    morphSVG: "#crs2",
-    duration: 10,
-    scrollTrigger: {
-        trigger: ".home-main-block",
-        markers: true,
-        scrub: true,
-        start: "top top",
-    }
-}, "+=1");
+gsapIf();
 
 
 //slider circle
@@ -238,6 +240,7 @@ let allArrows = [...document.querySelectorAll('.our-clients__right .slick-arrow'
 let allSLidesPrevs = [...document.querySelectorAll('.our-clients__right .single-slide.prev')];
 let allSLidesNext = [...document.querySelectorAll('.our-clients__right .single-slide.next')];
 let needSlides = 16;
+
 function addMoreSlides() {
     if (allSLides.length) {
         let lof = allSLides.length;
@@ -261,86 +264,88 @@ function addMoreSlides() {
         setActivesSlides();
     }
 }
+
 addMoreSlides();
+
 function setActivesSlides() {
 
     allSLides.forEach((btn, k) => {
 
 
-            if (k === 0) {
-                allSLides.forEach((btn2) => {
-                    btn2.classList.remove('active');
-                    btn2.classList.remove('prev');
-                    btn2.classList.remove('prev2');
-                    btn2.classList.remove('next');
-                    btn2.classList.remove('next2');
-                });
+        if (k === 0) {
+            allSLides.forEach((btn2) => {
+                btn2.classList.remove('active');
+                btn2.classList.remove('prev');
+                btn2.classList.remove('prev2');
+                btn2.classList.remove('next');
+                btn2.classList.remove('next2');
+            });
 
-                btn.classList.add('active');
+            btn.classList.add('active');
 
-                btn.nextElementSibling.classList.add('next');
-                btn.nextElementSibling.nextElementSibling.classList.add('next2');
-                btn.nextElementSibling.nextElementSibling.classList.add('next');
-                allSLides[allSLides.length - 1].classList.add('prev');
-                allSLides[allSLides.length - 2].classList.add('prev2');
-                allSLides[allSLides.length - 2].classList.add('prev');
+            btn.nextElementSibling.classList.add('next');
+            btn.nextElementSibling.nextElementSibling.classList.add('next2');
+            btn.nextElementSibling.nextElementSibling.classList.add('next');
+            allSLides[allSLides.length - 1].classList.add('prev');
+            allSLides[allSLides.length - 2].classList.add('prev2');
+            allSLides[allSLides.length - 2].classList.add('prev');
+        }
+
+
+        allSLidesPrevs = [...document.querySelectorAll('.single-slide.prev')];
+
+        // console.log(allSLidesPrevs);
+        allSLidesPrevs.forEach((btn3, b) => {
+
+            if (allSLidesPrevs[0].dataset.number === '0') {
+                // console.log(allSLidesPrevs[b + 1] + ' b + 1');
+                if (allSLidesPrevs[1].dataset.number === '1') {
+                    btn3.dataset.dir = -2;
+                    allSLidesPrevs[1].dataset.dir = -1;
+                } else {
+                    btn3.dataset.dir = -1;
+                    allSLidesPrevs[1].dataset.dir = -2;
+                }
+                // console.log('da');
+
+                // allSLidesPrevs[k + 1].dataset.dir = -2;
+            } else {
+                // console.log('net');
+                if (b === 0) {
+                    btn3.dataset.dir = -2;
+
+                } else {
+                    btn3.dataset.dir = -1;
+                }
+
+
             }
 
 
-            allSLidesPrevs = [...document.querySelectorAll('.single-slide.prev')];
+        });
+        allSLidesNext = [...document.querySelectorAll('.single-slide.next')];
+        allSLidesNext.forEach((btn4, m) => {
+            console.log(allSLides.length - 1 + ' lenght');
+            if (btn4.dataset.number === `${allSLides.length - 1}`) {
+                console.log(1 + ' tuta');
+                if (allSLidesNext[m - 1].dataset.number === '0') {
 
-            // console.log(allSLidesPrevs);
-            allSLidesPrevs.forEach((btn3, b) => {
-
-                if (allSLidesPrevs[0].dataset.number === '0') {
-                    // console.log(allSLidesPrevs[b + 1] + ' b + 1');
-                    if (allSLidesPrevs[1].dataset.number === '1') {
-                        btn3.dataset.dir = -2;
-                        allSLidesPrevs[1].dataset.dir = -1;
-                    } else {
-                        btn3.dataset.dir = -1;
-                        allSLidesPrevs[1].dataset.dir = -2;
-                    }
-                    // console.log('da');
-
-                    // allSLidesPrevs[k + 1].dataset.dir = -2;
+                    btn4.dataset.dir = 1;
+                    allSLidesNext[m - 1].dataset.dir = 2;
                 } else {
-                    // console.log('net');
-                    if (b === 0) {
-                        btn3.dataset.dir = -2;
-
-                    } else {
-                        btn3.dataset.dir = -1;
-                    }
-
-
+                    btn4.dataset.dir = 2;
+                    allSLidesNext[m - 1].dataset.dir = 1;
                 }
-
-
-            });
-            allSLidesNext = [...document.querySelectorAll('.single-slide.next')];
-            allSLidesNext.forEach((btn4, m) => {
-                console.log(allSLides.length - 1 + ' lenght');
-                if (btn4.dataset.number === `${allSLides.length - 1}`) {
-                    console.log(1 + ' tuta');
-                    if (allSLidesNext[m - 1].dataset.number === '0') {
-
-                        btn4.dataset.dir = 1;
-                        allSLidesNext[m - 1].dataset.dir = 2;
-                    } else {
-                        btn4.dataset.dir = 2;
-                        allSLidesNext[m - 1].dataset.dir = 1;
-                    }
+            } else {
+                if (m === 0) {
+                    btn4.dataset.dir = 1;
                 } else {
-                    if (m === 0) {
-                        btn4.dataset.dir = 1;
-                    } else {
-                        btn4.dataset.dir = 2;
-                    }
+                    btn4.dataset.dir = 2;
                 }
+            }
 
-            });
-        })
+        });
+    })
 
 }
 
@@ -548,8 +553,6 @@ let productSlider = [...document.querySelectorAll('.our-clients__right')];
 let slcSlider2 = '';
 
 
-
-
 // soc hovs
 
 let socHovs = [...document.querySelectorAll('.footer-bot__socials .single-footer-soc')];
@@ -576,6 +579,7 @@ function hoverSocials() {
         })
     }
 }
+
 hoverSocials();
 
 // scroll to home
@@ -602,7 +606,6 @@ function scrollFixedMenu() {
 }
 
 scrollFixedMenu();
-
 
 
 let homeSwiperTurtle = [...document.querySelectorAll('.our-clients__swiper')];
@@ -649,7 +652,6 @@ function startHomeTurtle() {
                 spaceBetween: 25,
 
 
-
             });
 
 
@@ -659,3 +661,71 @@ function startHomeTurtle() {
 }
 
 startHomeTurtle();
+
+
+let motherSlider = [...document.querySelectorAll('.mothership-slider')];
+
+function startMotherSlide() {
+    if (!motherSlider.length) {
+
+    } else {
+
+
+        motherSlider.forEach((sld) => {
+            let sldCont = sld.querySelector('.swiper');
+
+            const swiper2 = new Swiper(sldCont, {
+                // Optional parameters
+                loop: false,
+                slidesPerView: 'auto',
+                slidesPerGroup: 1,
+                speed: 700,
+                centeredSlides: true,
+                touchRatio: 1,
+                touchAngle: 180,
+                simulateTouch: true,
+                freeMode: true,
+
+                followFinger: true,
+                allowTouchMove: true,
+                threshold: true,
+                touchMoveStopPropagation: true,
+                touchStartPreventDefault: true,
+                touchStartForcePreventDefault: true,
+                touchReleaseOnEdges: true,
+
+                resistance: true,
+                resistanceRatio: 0.3,
+                cssMode: false,
+                initialSlide: 2,
+                navigation: false,
+                autoplay: false,
+                spaceBetween: 16,
+
+
+            });
+
+
+        })
+
+    }
+}
+
+startMotherSlide();
+
+//turtle island move
+
+let turtleIsland = [...document.querySelectorAll('.about-us__island')];
+
+function clickTurtleIsland() {
+    if (turtleIsland.length) {
+        turtleIsland.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                btn.classList.toggle('clicked');
+            })
+        })
+    }
+}
+
+clickTurtleIsland();
+//turtle island move
