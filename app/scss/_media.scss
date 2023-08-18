@@ -874,6 +874,21 @@
     padding: vw(183px) vw(20px) vw(40px);
     height: 100vh;
   }
+  .services-hero.about-hero {
+    padding: vw(186px) vw(20px) vw(40px);
+    height: 100vh;
+
+    .services-hero__cont {
+      h1 {
+        margin-left: vw(3px);
+        margin-bottom: vw(25px);
+      }
+
+      .img {
+        height: vw(172px);
+      }
+    }
+  }
   .services-hero .arrow-down-scroll {
     bottom: vw(49px);
     margin-left: vw(-2px);
@@ -1006,6 +1021,310 @@
         line-height: vw(32px);
         text-shadow: 3px 3px 0 #000, -2px 0 #000, 0 2px #000, 2px 0 #000, 0 -2px #000;
       }
+    }
+  }
+
+  .island-turtles .slick-arrow {
+    display: flex;
+    position: absolute;
+    top: vw(202px);
+    z-index: 6;
+    left: vw(105px);
+    opacity: 1;
+
+    &.slick-next {
+      left: auto;
+      right: vw(108px);
+    }
+
+    &.swiper-button-disabled {
+      opacity: 0.2;
+      pointer-events: none;
+    }
+  }
+  .all-services__cont {
+    overflow: hidden;
+  }
+  .island-ship {
+    display: none;
+  }
+  .island-turtles {
+    //display: none;
+    display: flex;
+    width: vw(360px);
+    margin-left: auto;
+    margin-right: auto;
+    height: vw(183px);
+    margin-top: vw(192px);
+    margin-bottom: 0;
+    //177
+    padding-left: calc(49.1667vw / 2);
+    padding-right: calc(49.1667vw / 2);
+
+    .swiper {
+
+    }
+
+    .swiper-wrapper {
+      height: 100%;
+
+      .swiper-slide {
+        height: 100%;
+
+        .turtle {
+          width: 100%;
+          height: 100%;
+          transform: none;
+          opacity: 0.4;
+          filter: brightness(0);
+        }
+
+        &.swiper-slide-active {
+          .turtle {
+            opacity: 1;
+            filter: drop-shadow(0 3px 6px rgba(0, 0, 0, .45));
+          }
+        }
+      }
+    }
+
+    .turtle {
+      position: static;
+    }
+  }
+  .about-us__island {
+    margin-top: vw(73px);
+    width: vw(1247px);
+    height: vw(604px);
+    margin-bottom: vw(91px);
+
+    .canvas-cont {
+      top: vw(22px);
+      right: vw(36px);
+      bottom: vw(14px);
+      left: vw(34px);
+    }
+  }
+  .about-us__island ~ .all-services__list {
+    gap: vw(39px);
+  }
+  .top-mothership .img {
+    width: vw(313px);
+    height: vw(117px);
+    filter: drop-shadow(6px 6px 6px rgba(0, 0, 0, .45));
+  }
+  .top-mothership {
+    margin-top: vw(39px);
+    margin-bottom: vw(35px);
+
+    .bgg {
+      display: none;
+    }
+  }
+  .mothership-slider {
+    height: vw(207px);
+  }
+  .mothership-slider .swiper-slide {
+    width: vw(312px);
+  }
+  .our-memberships__top .img {
+    width: vw(231px);
+    height: vw(116px);
+    filter: drop-shadow(3px 3px 6px rgba(0, 0, 0, .45))
+  }
+  .our-memberships {
+    margin-top: vw(68px);
+  }
+  .our-memberships::before {
+    display: none;
+  }
+  .our-memberships__slider:first-child {
+    margin: 0;
+  }
+  .single-member:hover .single-member__photo::before {
+    display: none;
+    content: none;
+  }
+  .our-memberships__slider {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: vw(20px) 0 vw(85px);
+    position: relative;
+
+    .slick-arrow {
+      position: absolute;
+      display: flex;
+      opacity: 1;
+      bottom: vw(37px);
+      left: vw(104px);
+
+      &.swiper-button-disabled {
+        opacity: 0.3;
+        pointer-events: none;
+      }
+
+      &.slick-next {
+        left: auto;
+        right: vw(108px);
+      }
+    }
+
+    > span {
+      width: 100%;
+      display: inline-block;
+      font-family: 'Anton', sans-serif;
+      text-align: center;
+      font-weight: normal;
+      font-size: vw(30px);
+      line-height: 1;
+      color: #000;
+      margin-bottom: 0;
+      text-transform: capitalize;
+
+    }
+
+    .swiper {
+      padding: vw(19px) vw(40px) vw(20px);
+      overflow: hidden;
+
+      .swiper-wrapper {
+        width: auto;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        gap: 0;
+      }
+    }
+  }
+
+
+  .our-memberships__stats {
+    padding-left: vw(20px);
+    padding-right: vw(20px);
+  }
+  .our-memberships__stats {
+    margin-top: vw(74px);
+    padding-bottom: vw(120px);
+
+    .dots {
+      position: absolute;
+      width: 100%;
+      bottom: vw(81px);
+      left: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: vw(15px);
+
+      .single-dot {
+        width: vw(25px);
+        height: vw(25px);
+        cursor: pointer;
+
+        svg {
+          width: 100%;
+          height: 100%;
+        }
+
+        svg {
+          width: 100%;
+          height: 100%;
+
+          flex-shrink: 0;
+
+          path {
+            fill: rgba(255, 255, 255, 0);
+            transition: fill 0.2s ease-out;
+          }
+        }
+
+        &:hover, &.active {
+          svg {
+            path {
+              fill: #FFF700;
+            }
+          }
+
+
+        }
+
+
+      }
+    }
+  }
+  .our-memberships__stats .stats-arrow {
+    top: auto;
+    bottom: vw(21px);
+    left: vw(111px);
+
+    &.slick-next {
+      left: auto;
+      right: vw(115px);
+    }
+  }
+  .member-stats {
+    padding: vw(20px);
+
+    span {
+      font-size: vw(120px);
+      line-height: 1;
+      text-shadow: 3.5px 1.4px 0px #000, 1px 1px 0 #000, -1px -1px 0 #000;
+    }
+
+    p {
+      font-size: vw(17px);
+      line-height: 1;
+      margin-top: vw(8px);
+    }
+  }
+  .stats-arrow {
+    width: vw(36px);
+    height: vw(49px);
+
+    svg {
+      #linear-gradient12, #linear-gradient23 {
+        stop {
+          &:first-child {
+            stop-color: #FFCC33;
+          }
+
+          &:nth-child(2) {
+            stop-color: #FFCC33;
+          }
+        }
+      }
+    }
+  }
+  .single-member {
+    .img {
+      top: 14.14%;
+      left: 14.3%;
+    }
+
+    .text {
+      margin-top: vw(15px);
+
+      span {
+        font-size: vw(20px);
+        line-height: vw(25px);
+      }
+
+      p {
+        font-size: vw(20px);
+        line-height: vw(25px);
+      }
+    }
+  }
+  .our-memberships__list {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: 36px;
+  }
+  .all-services {
+    &.all-services--about {
+      padding-bottom: vw(123px);
     }
   }
 
