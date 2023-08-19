@@ -885,9 +885,6 @@ function startMemberSlider() {
                     spaceBetween: 50,
 
 
-
-
-
                 });
 
 
@@ -916,3 +913,40 @@ function clickTurtleIsland() {
 
 clickTurtleIsland();
 //turtle island move
+let scrollArrowDown = [...document.querySelectorAll('.arrow-down-scroll')];
+
+function scrollDown() {
+    if (scrollArrowDown.length) {
+        scrollArrowDown.forEach((btn) => {
+
+            btn.addEventListener('click', (e) => {
+                let elem = btn.closest('.services-hero').nextElementSibling;
+                e.stopPropagation();
+                e.preventDefault();
+                $([document.documentElement, document.body]).animate({
+                    scrollTop: $(elem).offset().top + 50
+                }, 500);
+            });
+        })
+    }
+}
+
+scrollDown();
+// arrow - down - scroll
+
+
+//control blogshare
+
+let blogSocials = [...document.querySelectorAll('.blog-socials .btn-socials')];
+
+function controlBlogShare() {
+    if (blogSocials.length) {
+        blogSocials.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                btn.closest('.blog-socials').classList.toggle('open');
+            })
+        })
+    }
+}
+
+controlBlogShare();
