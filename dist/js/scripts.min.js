@@ -950,3 +950,39 @@ function controlBlogShare() {
 }
 
 controlBlogShare();
+
+// let playPodcast
+
+let playPodcast = [...document.querySelectorAll('.play-btn')];
+
+function controlPodcast() {
+    if (playPodcast.length) {
+        playPodcast.forEach((btn) => {
+            let frame = btn.dataset.iframe;
+            let podcastModal = document.querySelector('.podcast-player');
+
+            btn.addEventListener('click', () => {
+                podcastModal.classList.toggle('open');
+                podcastModal.querySelector('iframe').src = frame;
+            })
+
+        })
+    }
+}
+
+controlPodcast();
+
+
+let caseOpenText = [...document.querySelectorAll('.case-hero-btn')];
+
+function controlOpenText() {
+    if (caseOpenText.length) {
+        caseOpenText.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                btn.closest('.case-hero-head').classList.toggle('open');
+            })
+        })
+    }
+}
+
+controlOpenText();
