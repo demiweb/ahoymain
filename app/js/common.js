@@ -178,6 +178,41 @@ function burgerControl() {
 burgerControl();
 
 var controller = new ScrollMagic.Controller();
+gsap.registerPlugin(ScrollTrigger);
+
+var tl22 = gsap.timeline();
+var tl23 = gsap.timeline();
+var tl24 = gsap.timeline();
+var tl25 = gsap.timeline();
+
+let btnControlTeeth = [...document.querySelectorAll('.btn-teeth')];
+function changeMouth() {
+    if (document.querySelector('.case-brief')) {
+
+        let opened = 0;
+        btnControlTeeth.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                if (opened === 0) {
+                    tl22.to("#main-mouth1", 0.5, { morphSVG: "#main-mouth2", transform: 'translate(0 0)', ease:Power2.easeInOut });
+                    tl23.to("#back-mouth", 0.5, { morphSVG: "#back-backery2", transform: 'translate(0 0)', ease:Power2.easeInOut });
+                    tl24.to("#back-backery1", 0.5, { morphSVG: "#back-backery2", transform: 'translate(0 0)',  ease:Power2.easeInOut });
+                    tl25.to("#mouthbot2", 0.5, { transform: 'translate(-336%, -252%)',  ease:Power2.easeInOut });
+                    document.querySelector('.case-brief').classList.add('opened');
+                    opened = 1;
+                } else {
+                    tl22.to("#main-mouth1", 0.5, { morphSVG: "#main-mouth3", transform: 'translate(0, 18%)', ease:Power2.easeInOut });
+                    tl23.to("#back-mouth", 0.5, { morphSVG: "#back-mouth2", transform: 'translate(0, 15.9%)', ease:Power2.easeInOut });
+                    tl24.to("#back-backery1", 0.5, { morphSVG: "#back-mouth2", transform: 'translate(0, 15.9%)',  ease:Power2.easeInOut });
+                    tl25.to("#mouthbot2", 0.5, { transform: 'translate(0, 0)',  ease:Power2.easeInOut });
+                    document.querySelector('.case-brief').classList.remove('opened');
+                    opened = 0;
+                }
+
+            })
+        })
+    }
+}
+changeMouth();
 
 function gsapIf() {
     if (document.querySelector('.trigger-clipp')) {
@@ -920,7 +955,7 @@ function scrollDown() {
         scrollArrowDown.forEach((btn) => {
 
             btn.addEventListener('click', (e) => {
-                let elem = btn.closest('.services-hero').nextElementSibling;
+                let elem = btn.closest('.scroll-anchor').nextElementSibling;
                 e.stopPropagation();
                 e.preventDefault();
                 $([document.documentElement, document.body]).animate({
