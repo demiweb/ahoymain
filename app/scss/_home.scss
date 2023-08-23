@@ -1190,7 +1190,7 @@ body {
 
   }
 
-  &:hover {
+  &.hover {
     .planet {
       img {
         &.hov {
@@ -1254,6 +1254,7 @@ body {
       }
     }
   }
+
 }
 
 .human-btn {
@@ -1450,7 +1451,7 @@ body {
 
   }
 
-  &:hover {
+  &.hover {
     .planet {
       img {
         &.hov {
@@ -3064,20 +3065,29 @@ body {
 .mothership-slider {
   width: 100%;
   height: vw(570px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 
   .swiper {
-    width: 100%;
+    //678px
+    width: calc(100% + 35.3125vw);
+    margin-left: vw(-339px);
+    margin-right: vw(-339px);
     height: 100%;
+    overflow: visible;
   }
 
   .swiper-wrapper {
     width: 100%;
     height: 100%;
+    overflow: visible;
   }
 
   .swiper-slide {
     height: 100%;
-    width: vw(855px);
+    width: 100%;
 
   }
 }
@@ -3408,7 +3418,7 @@ body {
     font-weight: normal;
     font-size: vw(28px);
     letter-spacing: .036em;
-    line-height: vw(25px);
+    line-height: 1.1;
     text-align: center;
     color: #000;
     margin-top: vw(6px);
@@ -5003,6 +5013,7 @@ body {
     height: vw(93px);
     margin-bottom: vw(24px);
     display: flex;
+
     img {
       width: 100%;
       height: 100%;
@@ -5040,6 +5051,7 @@ body {
     width: vw(576px);
     height: vw(98px);
     margin-bottom: vw(27px);
+
     img {
       width: 100%;
       height: 100%;
@@ -5072,6 +5084,7 @@ body {
     width: vw(501px);
     height: vw(91px);
     margin-bottom: vw(118px);
+
     img {
       width: 100%;
       height: 100%;
@@ -5403,6 +5416,7 @@ body {
     width: vw(490px);
     height: vw(93px);
     margin-bottom: vw(40px);
+
     img {
       width: 100%;
       height: 100%;
@@ -5748,9 +5762,11 @@ body {
 
   }
 }
+
 .mouth-mob {
   display: none;
 }
+
 .ship-links {
   width: 100%;
   height: 100%;
@@ -5860,6 +5876,182 @@ body {
 
 @media screen and (min-width: 767px) {
   .about-us__island {
+    .island-ship {
+      animation: ship1 6s ease-in-out infinite;
+    }
+    .island-turtles{
+      .swiper-slide {
+        &:nth-child(1) {
+          .turtle {
+            animation: turtle1 8s ease-in-out infinite;
+          }
+        }
+        &:nth-child(2) {
+          .turtle {
+            animation: turtle2 8s ease-in-out infinite;
+          }
+        }
+        &:nth-child(3) {
+          .turtle {
+            animation: turtle3 8s ease-in-out infinite;
+          }
+        }
+        &:nth-child(4) {
+          .turtle {
+            animation: turtle4 8s ease-in-out infinite;
+          }
+        }
+        &:nth-child(5) {
+          .turtle {
+            animation: turtle5 8s ease-in-out infinite;
+          }
+        }
+        &:nth-child(6) {
+          .turtle {
+            animation: turtle6 8s ease-in-out infinite;
+          }
+        }
+        &:nth-child(7) {
+          .turtle {
+            animation: turtle7 8s ease-in-out infinite;
+          }
+        }
+        &:nth-child(8) {
+          .turtle {
+            animation: turtle8 8s ease-in-out infinite;
+          }
+        }
+        &:nth-child(9) {
+          .turtle {
+            animation: turtle9 8s ease-in-out infinite;
+          }
+        }
+      }
+    }
+  }
+  @keyframes ship1 {
+    0% {
+      transform: translate(-50%, 0) rotate(0);
+      top: vw(-17px);
+    }
+    40% {
+      transform: translate(-50%, 0) rotate(0);
+      top: 85.1%;
+    }
+    50% {
+      transform: translate(-50%, 0) rotate(180deg);
+      top: 85.1%;
+    }
+    90% {
+      transform: translate(-50%, 0) rotate(180deg);
+      top: vw(-17px);
+    }
+    100% {
+      top: vw(-17px);
+      transform: translate(-50%, 0) rotate(0);
+    }
+  }
+  @keyframes turtle1 {
+    0% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(26%, 5.6%) rotate(18deg);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+  @keyframes turtle2 {
+    0% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(18.6%, -17.2%) rotate(-10deg);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+  @keyframes turtle3 {
+    0% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(8.5%, 16.3%) rotate(18deg);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+  @keyframes turtle4 {
+    0% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(22.2%, -6.6%) rotate(-27deg);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+  @keyframes turtle5 {
+    0% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(15.5%, 28.3%) rotate(14deg);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+  @keyframes turtle6 {
+    0% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(31.2%, -2.4%) rotate(-16deg);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+  @keyframes turtle7 {
+    0% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(7.5%, 24.3%) rotate(-41deg);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+  @keyframes turtle8 {
+    0% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(0.5%, -14.7%) rotate(-189deg);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+  @keyframes turtle9 {
+    0% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(-12.5%, -34.7%) rotate(-72deg);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+
+  .about-us__island {
     &.clicked {
       .island-ship {
         top: 85.1%;
@@ -5938,4 +6130,20 @@ body {
 
 #buzzsprout-small-player {
   //display: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  //border: 1px solid green;
+  //-webkit-text-fill-color: green;
+  -webkit-box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0) inset;
+  background: url("../img/bg-input1.svg") no-repeat center/ 100% 100% !important;
+  transition: background-color 0s ease-in-out 0s;
 }

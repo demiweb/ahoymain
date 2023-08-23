@@ -36,6 +36,33 @@ function mainBlockScroll() {
 
 mainBlockScroll();
 
+//hovering stuff
+
+let hoveringStuff = [...document.querySelectorAll('.hovering-stuff')];
+
+function hoverSomeItems() {
+    if (hoveringStuff.length) {
+        hoveringStuff.forEach((btn) => {
+            let bt = btn.querySelector('.human-btn');
+
+            bt.addEventListener('mouseover', () => {
+                btn.classList.add('hover');
+            });
+            bt.addEventListener('touchstart', () => {
+                btn.classList.add('hover');
+            });
+            bt.addEventListener('mouseout', () => {
+                btn.classList.remove('hover');
+            });
+            bt.addEventListener('touchend', () => {
+                btn.classList.remove('hover');
+            })
+        })
+    }
+}
+hoverSomeItems();
+//hovering stuff
+
 // scroll animations
 var anim = document.querySelectorAll('.anim')
 
@@ -847,15 +874,15 @@ function startMotherSlide() {
 
             const swiper2 = new Swiper(sldCont, {
                 // Optional parameters
-                loop: false,
-                slidesPerView: 'auto',
+                loop: true,
+                slidesPerView: 1,
                 slidesPerGroup: 1,
                 speed: 700,
-                centeredSlides: true,
+                centeredSlides: false,
                 touchRatio: 1,
                 touchAngle: 180,
                 simulateTouch: true,
-                freeMode: true,
+                freeMode: false,
 
                 followFinger: true,
                 allowTouchMove: true,
@@ -870,11 +897,14 @@ function startMotherSlide() {
                 cssMode: false,
                 initialSlide: 2,
                 navigation: false,
-                autoplay: false,
+                autoplay: {
+                    delay: 3400,
+                },
                 spaceBetween: 7,
                 breakpoints: {
                     767: {
                         spaceBetween: 16,
+                        slidesPerView: 3,
                     }
                 }
 
@@ -906,7 +936,7 @@ function startMemberStats() {
 
             const swiper2 = new Swiper(sldCont, {
                 // Optional parameters
-                loop: false,
+                loop: true,
                 slidesPerView: 1,
                 slidesPerGroup: 1,
                 speed: 700,
@@ -1251,7 +1281,7 @@ ifHaveShips();
 var elementBtns = document.querySelector('.case-hero__top');
 
 var Visible = function (target) {
-    if (!elementBtns) {
+    if (!document.querySelector('.map-ship')) {
 
     } else {
         var targetPosition = {
@@ -1294,7 +1324,7 @@ Visible(elementBtns);
 var elementBtns2 = document.querySelector('.footer-bot');
 
 var Visible2 = function (target) {
-    if (!elementBtns2) {
+    if (!document.querySelector('.map-ship')) {
 
     } else {
         var targetPosition = {

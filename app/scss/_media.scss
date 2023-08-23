@@ -1123,6 +1123,15 @@
   }
   .mothership-slider {
     height: vw(207px);
+    overflow: hidden;
+    .swiper {
+      width: 100%;
+      padding-left: 24px;
+      padding-right: 24px;
+      overflow: visible;
+      margin-left: 0;
+      margin-right: 0;
+    }
   }
   .mothership-slider .swiper-slide {
     width: vw(312px);
@@ -1320,7 +1329,7 @@
     width: 100%;
     padding-left: 0;
     padding-right: 0;
-    margin-top: 36px;
+    margin-top: vw(36px);
   }
   .all-services {
     &.all-services--about {
@@ -1698,8 +1707,8 @@
     padding-right: vw(37px);
 
     .img {
-      margin-top: 15px;
-      margin-bottom: 20px;
+      margin-top: vw(15px);
+      margin-bottom: vw(20px);
     }
 
     p {
@@ -1891,56 +1900,59 @@
 
   .case-concept {
     margin-top: 0;
-    padding-top: 119px;
+    padding-top: vw(119px);
 
     > .img {
-      width: 251px;
-      height: 146px;
-      margin-bottom: 41px;
-      margin-left: -8px;
+      width: vw(251px);
+      height: vw(146px);
+      margin-bottom: vw(41px);
+      margin-left: vw(-8px);
     }
   }
   .case-brief__content {
-    max-width: 303px;
+    max-width: vw(303px);
 
   }
   .case-brief__content .form .wpcf7-form-control-wrap {
     width: 100%;
   }
   .case-brief__content .form {
-    margin-top: 171px;
+    margin-top: vw(171px);
 
     form > p {
-      gap: 15px;
+      gap: vw(15px);
     }
   }
   .case-brief__content .form .submit-btn {
     width: 100%;
   }
   .case-client__cont {
-    width: 320px;
-    margin-left: 2px;
+    width: vw(320px);
+    margin-left: vw(2px);
   }
   .case-client {
-    margin-top: -151px;
+    margin-top: vw(-151px);
   }
   .case-client__quote .text blockquote, .case-client__quote .text p {
-    width: 240px;
-    font-size: 17px;
-    line-height: 25px;
+    width: vw(240px);
+    font-size: vw(17px);
+    line-height: vw(25px);
     text-align: center;
   }
   .case-client__cont {
-    padding-bottom: 85px;
+    padding-bottom: vw(85px);
   }
   .case-client {
     .article-buttons {
-      gap: 37px;
+      gap: vw(37px);
     }
   }
   .case-study {
-    padding-bottom: 300px;
-    margin-bottom: -137px;
+    padding-bottom: vw(300px);
+    margin-bottom: vw(-137px);
+  }
+  .case-hero .arrow-down-scroll:hover {
+    transform: translate(-50%, 2.78vw);
   }
   .case-client__info {
     width: 100%;
@@ -1950,11 +1962,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-left: 10px;
-    margin-top: 20px;
+    padding-left: vw(10px);
+    margin-top: vw(20px);
     .img {
-      width: 189px;
-      height: 189px;
+      width: vw(189px);
+      height: vw(189px);
       img {
         width: 89%;
         height: 89%;
@@ -1963,17 +1975,17 @@
     }
     .txt {
       align-items: center;
-      margin-top: 34px;
-      padding-right: 13px;
+      margin-top: vw(34px);
+      padding-right: vw(13px);
       span {
-        font-size: 35px;
+        font-size: vw(35px);
         line-height: 1;
-        margin-bottom: 4px;
+        margin-bottom: vw(4px);
       }
       p {
-        font-size: 20px;
+        font-size: vw(20px);
         line-height: 1;
-        margin-bottom: 5px;
+        margin-bottom: vw(5px);
         &:last-child {
           margin-bottom: 0;
         }
@@ -1981,10 +1993,10 @@
     }
   }
   .case-client__quote {
-    height: 479px;
+    height: vw(479px);
 
     &::before, &::after {
-      font-size: 150px;
+      font-size: vw(150px);
       letter-spacing: .08em;
       line-height: 1;
       text-align: center;
@@ -1993,17 +2005,17 @@
     }
 
     &::before {
-      top: -97px;
-      left: -11px;
+      top: vw(-97px);
+      left: vw(-11px);
     }
 
     &::after {
-      right: 38px;
-      bottom: -16px;
+      right: vw(38px);
+      bottom: vw(-16px);
     }
   }
   .case-brief__submitted {
-    margin-top: 450px;
+    margin-top: vw(450px);
   }
   .case-brief__head {
     flex-direction: column;
@@ -2012,49 +2024,49 @@
     padding-left: 0;
 
     p {
-      font-size: 30px;
-      line-height: 38px;
+      font-size: vw(30px);
+      line-height: vw(38px);
     }
 
     .btn-teeth {
-      width: 47px;
-      height: 42px;
-      margin-top: 48px;
+      width: vw(47px);
+      height: vw(42px);
+      margin-top: vw(48px);
       margin-left: 0;
 
       .xmark {
-        width: 21px;
-        height: 19px;
+        width: vw(21px);
+        height: vw(19px);
       }
     }
   }
   .case-concept__gallery {
-    width: 308px;
-    gap: 25px;
+    width: vw(308px);
+    gap: vw(25px);
     max-width: 100%;
 
     .img {
-      height: 502px;
+      height: vw(502px);
       background: url("../img/veryverybig-place.jpg") no-repeat center / cover;
     }
   }
   .case-concept__text {
     width: 90vw;
-    margin-bottom: 86px;
+    margin-bottom: vw(86px);
 
     span {
-      font-size: 30px;
-      line-height: 35px;
-      margin-bottom: 60px;
+      font-size: vw(30px);
+      line-height: vw(35px);
+      margin-bottom: vw(60px);
     }
 
     p {
-      font-size: 17px;
-      line-height: 25px;
-      width: 264px;
-      margin-left: 7px;
+      font-size: vw(17px);
+      line-height: vw(25px);
+      width: vw(264px);
+      margin-left: vw(7px);
       letter-spacing: 0.006em;
-      margin-bottom: 25px;
+      margin-bottom: vw(25px);
     }
   }
   .case-challenge-map {
@@ -2080,8 +2092,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-top: 19px;
-    margin-bottom: 89px;
+    padding-top: vw(19px);
+    margin-bottom: vw(89px);
   }
   .case-short {
     width: 100%;
@@ -2089,36 +2101,36 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 31px;
+    gap: vw(31px);
   }
   .single-case-short:nth-child(2) {
-    margin-bottom: 20px;
+    margin-bottom: vw(20px);
   }
   .single-case-short:nth-child(3) {
-    margin-bottom: 30px;
+    margin-bottom: vw(30px);
   }
   .case-solution {
-    padding: 186px 0 20px;
+    padding: vw(186px) 0 vw(20px);
 
 
   }
   .case-results {
-    padding-top: 258px;
+    padding-top: vw(258px);
 
     .img {
-      width: 247px;
-      height: 142px;
-      margin-bottom: 77px;
+      width: vw(247px);
+      height: vw(142px);
+      margin-bottom: vw(77px);
     }
   }
   .case-results__text {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    gap: 74px;
+    gap: vw(74px);
     width: 100%;
     max-width: 100%;
-    padding: 0 20px;
+    padding: 0 vw(20px);
     margin: 0;
   }
   .case-brief {
@@ -2126,8 +2138,8 @@
   }
   .mouth-mob {
     display: flex;
-    width: 340px;
-    height: 552px;
+    width: vw(340px);
+    height: vw(552px);
     margin-left: auto;
     margin-right: auto;
 
@@ -2162,7 +2174,7 @@
   }
   .case-brief__cont {
     width: 100%;
-    padding-top: 288px;
+    padding-top: vw(288px);
     position: relative;
     top: auto;
     left: auto;
@@ -2179,68 +2191,68 @@
     max-width: 100%;
 
     span {
-      font-size: 20px;
-      line-height: 25px;
+      font-size: vw(20px);
+      line-height: vw(25px);
     }
 
     p {
-      font-size: 140px;
+      font-size: vw(140px);
       line-height: 1;
       text-shadow: 7px 7px 0px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     }
   }
   .case-solution__text {
     .img {
-      width: 276px;
-      height: 137px;
-      margin-bottom: 47px;
+      width: vw(276px);
+      height: vw(137px);
+      margin-bottom: vw(47px);
     }
 
     p {
-      font-size: 30px;
-      line-height: 40px;
+      font-size: vw(30px);
+      line-height: vw(40px);
       max-width: 70vw;
     }
   }
   .case-challenge__text {
-    width: 325px;
-    height: 518px;
-    margin-top: 104px;
+    width: vw(325px);
+    height: vw(518px);
+    margin-top: vw(104px);
     filter: drop-shadow(3px 3px 5px #000);
     background: url("../img/chalmap2.svg") no-repeat center / 100%;
-    padding-top: 88px;
+    padding-top: vw(88px);
 
     .img {
-      width: 270px;
-      height: 128px;
-      margin-bottom: 11px;
+      width: vw(270px);
+      height: vw(128px);
+      margin-bottom: vw(11px);
     }
 
     p {
       width: 100%;
-      max-width: 218px;
-      font-size: 17px;
-      line-height: 25px;
+      max-width: vw(218px);
+      font-size: vw(17px);
+      line-height: vw(25px);
       text-align: center;
     }
   }
   .case-hero-btn {
-    width: 47px;
-    height: 42px;
+    width: vw(47px);
+    height: vw(42px);
 
     .xmark {
-      width: 21px;
-      height: 19px;
+      width: vw(21px);
+      height: vw(19px);
     }
   }
   .case-hero-text {
-    max-width: 311px;
-    margin-top: 29px;
+    max-width: vw(311px);
+    margin-top: vw(29px);
 
     p {
-      font-size: 17px;
-      line-height: 25px;
-      margin-bottom: 27px;
+      font-size: vw(17px);
+      line-height: vw(25px);
+      margin-bottom: vw(27px);
 
       &:last-child {
         margin-bottom: 0;
@@ -2252,56 +2264,56 @@
     flex-direction: row-reverse;
     padding-left: 0;
     justify-content: flex-end;
-    gap: 23px;
+    gap: vw(23px);
 
     p {
-      font-size: 20px;
-      line-height: 25px;
+      font-size: vw(20px);
+      line-height: vw(25px);
     }
   }
   .single-case-short {
     width: 100%;
 
     span {
-      font-size: 20px;
-      line-height: 26px;
+      font-size: vw(20px);
+      line-height: vw(26px);
       margin-top: 0;
     }
 
     p {
-      font-size: 47px;
+      font-size: vw(47px);
       letter-spacing: 0.04em;
-      line-height: 85px;
-      margin-top: -9px;
+      line-height: vw(85px);
+      margin-top: vw(-9px);
     }
   }
   .case-hero .arrow-down-scroll {
     position: absolute;
-    bottom: 49px;
+    bottom: vw(49px);
     left: 49.4%;
   }
   .case-hero__top {
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 60px;
+    padding-left: vw(20px);
+    padding-right: vw(20px);
+    padding-top: vw(60px);
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
     h1 {
       margin-right: 0;
-      margin-left: 4px;
-      margin-top: 22px;
-      font-size: 36px;
-      line-height: 48px;
+      margin-left: vw(4px);
+      margin-top: vw(22px);
+      font-size: vw(36px);
+      line-height: vw(48px);
       text-align: center;
-      margin-bottom: 35px;
+      margin-bottom: vw(35px);
       text-shadow: 10px 10px 0px #000, 1px 1px 0 #000, -1px -1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000;
     }
 
     > p {
       font-weight: normal;
-      font-size: 20px;
+      font-size: vw(20px);
       letter-spacing: 0.02em;
       line-height: 1.5;
       text-align: center;
@@ -2309,13 +2321,13 @@
     }
 
     .turtle {
-      width: 255px;
-      height: 255px;
+      width: vw(255px);
+      height: vw(255px);
       margin: 0;
 
       .place-img {
-        width: 120px;
-        height: 85px;
+        width: vw(120px);
+        height: vw(85px);
       }
     }
   }
