@@ -13,6 +13,28 @@ function allLozadImg() {
 
 allLozadImg();
 
+let mainBlock = document.querySelector('.home-2 .main-home');
+// let homeHero = document.querySelector('.home-hero');
+
+function mainBlockScroll() {
+    if (mainBlock) {
+        let pg = window.pageYOffset - 200;
+
+        mainBlock.style.maskPosition = `0 ${pg}px`;
+        mainBlock.style.webkitMaskPosition = `0 ${pg}px`;
+
+        console.log(mainBlock.scrollTop);
+
+        window.addEventListener('scroll', () => {
+            pg = window.pageYOffset - 200;
+            console.log(pg);
+            mainBlock.style.maskPosition = `0 ${pg}px`;
+            mainBlock.style.webkitMaskPosition = `0 ${pg}px`;
+        })
+    }
+}
+
+mainBlockScroll();
 
 // scroll animations
 var anim = document.querySelectorAll('.anim')
@@ -184,34 +206,148 @@ var tl22 = gsap.timeline();
 var tl23 = gsap.timeline();
 var tl24 = gsap.timeline();
 var tl25 = gsap.timeline();
+var tl26 = gsap.timeline();
+var tl27 = gsap.timeline();
+var tl28 = gsap.timeline();
 
 let btnControlTeeth = [...document.querySelectorAll('.btn-teeth')];
+
 function changeMouth() {
     if (document.querySelector('.case-brief')) {
 
         let opened = 0;
         btnControlTeeth.forEach((btn) => {
             btn.addEventListener('click', () => {
-                if (opened === 0) {
-                    tl22.to("#main-mouth1", 0.5, { morphSVG: "#main-mouth2", transform: 'translate(0 0)', ease:Power2.easeInOut });
-                    tl23.to("#back-mouth", 0.5, { morphSVG: "#back-backery2", transform: 'translate(0 0)', ease:Power2.easeInOut });
-                    tl24.to("#back-backery1", 0.5, { morphSVG: "#back-backery2", transform: 'translate(0 0)',  ease:Power2.easeInOut });
-                    tl25.to("#mouthbot2", 0.5, { transform: 'translate(-336%, -252%)',  ease:Power2.easeInOut });
-                    document.querySelector('.case-brief').classList.add('opened');
-                    opened = 1;
+                if (window.innerWidth > 767) {
+                    if (opened === 0) {
+                        tl22.to("#main-mouth1", 0.5, {
+                            morphSVG: "#main-mouth2",
+                            transform: 'translate(0 0)',
+                            ease: Power2.easeInOut
+                        });
+                        tl23.to("#back-mouth", 0.5, {
+                            morphSVG: "#back-backery2",
+                            transform: 'translate(0 0)',
+                            ease: Power2.easeInOut
+                        });
+                        tl24.to("#back-backery1", 0.5, {
+                            morphSVG: "#back-backery2",
+                            transform: 'translate(0 0)',
+                            ease: Power2.easeInOut
+                        });
+                        tl25.to("#mouthbot2", 0.5, {transform: 'translate(-336%, -252%)', ease: Power2.easeInOut});
+                        document.querySelector('.case-brief').classList.add('opened');
+                        document.querySelector('.case-brief__head').classList.add('open');
+                        opened = 1;
+                    } else {
+                        tl22.to("#main-mouth1", 0.5, {
+                            morphSVG: "#main-mouth3",
+                            transform: 'translate(0, 18%)',
+                            ease: Power2.easeInOut
+                        });
+                        tl23.to("#back-mouth", 0.5, {
+                            morphSVG: "#back-mouth2",
+                            transform: 'translate(0, 15.9%)',
+                            ease: Power2.easeInOut
+                        });
+                        tl24.to("#back-backery1", 0.5, {
+                            morphSVG: "#back-mouth2",
+                            transform: 'translate(0, 15.9%)',
+                            ease: Power2.easeInOut
+                        });
+                        tl25.to("#mouthbot2", 0.5, {transform: 'translate(0, 0)', ease: Power2.easeInOut});
+                        document.querySelector('.case-brief').classList.remove('opened');
+                        document.querySelector('.case-brief__head').classList.remove('open');
+                        opened = 0;
+                    }
                 } else {
-                    tl22.to("#main-mouth1", 0.5, { morphSVG: "#main-mouth3", transform: 'translate(0, 18%)', ease:Power2.easeInOut });
-                    tl23.to("#back-mouth", 0.5, { morphSVG: "#back-mouth2", transform: 'translate(0, 15.9%)', ease:Power2.easeInOut });
-                    tl24.to("#back-backery1", 0.5, { morphSVG: "#back-mouth2", transform: 'translate(0, 15.9%)',  ease:Power2.easeInOut });
-                    tl25.to("#mouthbot2", 0.5, { transform: 'translate(0, 0)',  ease:Power2.easeInOut });
-                    document.querySelector('.case-brief').classList.remove('opened');
-                    opened = 0;
+                    if (opened === 0) {
+                        tl28.to("#clp2", 0.5, {
+                            morphSVG: "#clp1",
+                            // transform: 'translate(0 0)',
+                            ease: Power2.easeInOut
+                        });
+                        tl22.to("#mprt1", 0.5, {
+                            morphSVG: "#mprt12",
+                            transform: 'translate(0, 4%)',
+                            ease: Power2.easeInOut
+                        });
+                        tl23.to("#mprt2", 0.5, {
+                            morphSVG: "#mprt22",
+                            transform: 'translate(0, 4%)',
+                            ease: Power2.easeInOut
+                        });
+                        tl24.to("#mprt3", 0.5, {
+                            morphSVG: "#mprt32",
+                            // transform: 'translate(0 0)',
+                            ease: Power2.easeInOut
+                        });
+                        tl25.to("#mprt4", 0.5, {
+                            morphSVG: "#mprt42",
+                            transform: 'translate(0 0)',
+                            ease: Power2.easeInOut
+                        });
+                        tl26.to("#mprt5", 0.5, {
+                            morphSVG: "#mprt52",
+                            // transform: 'translate(0 0)',
+                            ease: Power2.easeInOut
+                        });
+                        tl27.to("#mprt0", 0.5, {
+                            morphSVG: "#mprt02",
+                            // transform: 'translate(0 0)',
+                            ease: Power2.easeInOut
+                        });
+                        document.querySelector('.case-brief').classList.add('opened');
+                        document.querySelector('.case-brief__head').classList.add('open');
+                        opened = 1;
+                    } else {
+                        tl28.to("#clp2", 0.5, {
+                            morphSVG: "#clp3",
+                            // transform: 'translate(0 0)',
+                            ease: Power2.easeInOut
+                        });
+                        tl22.to("#mprt1", 0.5, {
+                            morphSVG: "#mprt13",
+                            transform: 'translate(0, -17%)',
+                            ease: Power2.easeInOut
+                        });
+                        tl23.to("#mprt2", 0.5, {
+                            morphSVG: "#mprt23",
+                            transform: 'translate(0, -17%)',
+                            ease: Power2.easeInOut
+                        });
+                        tl24.to("#mprt3", 0.5, {
+                            morphSVG: "#mprt33",
+                            // transform: 'translate(0 0)',
+                            ease: Power2.easeInOut
+                        });
+                        tl25.to("#mprt4", 0.5, {
+                            morphSVG: "#mprt43",
+                            transform: 'translate(0, -51%)',
+                            ease: Power2.easeInOut
+                        });
+                        tl26.to("#mprt5", 0.5, {
+                            morphSVG: "#mprt53",
+                            // transform: 'translate(0 0)',
+                            ease: Power2.easeInOut
+                        });
+                        tl27.to("#mprt0", 0.5, {
+                            morphSVG: "#mprt03",
+                            // transform: 'translate(0 0)',
+                            ease: Power2.easeInOut
+                        });
+                        document.querySelector('.case-brief').classList.remove('opened');
+                        document.querySelector('.case-brief__head').classList.remove('open');
+                        opened = 0;
+                    }
                 }
+
 
             })
         })
     }
 }
+
 changeMouth();
 
 function gsapIf() {
@@ -1021,3 +1157,180 @@ function controlOpenText() {
 }
 
 controlOpenText();
+
+
+//
+
+
+function ifHaveShips() {
+    if (document.querySelector('.ship-moves')) {
+        const sections = document.querySelectorAll(".page-section");
+        const menuItems = document.querySelectorAll(".ship-links a");
+        // function onScroll2() {
+        //     var scrollPos = $(document).scrollTop();
+        //     $('.ship-links  a[href*="#"]').each(function (index) {
+        //         var currLink = $(this);
+        //         // console.log(index);
+        //         var refElement = $(currLink.attr("href"));
+        //         if (refElement.position().top <= scrollPos && refElement.position().top + refElement.outerHeight(true) > scrollPos) {
+        //             currLink.addClass("active");
+        //             document.querySelector('.ship-moves').classList.add(`active-${index}`);
+        //         } else {
+        //             currLink.removeClass("active");
+        //             document.querySelector('.ship-moves').classList.remove(`active-${index}`);
+        //         }
+        //     });
+        // }
+
+        sections.forEach((sec, index) => {
+            let top = window.scrollY;
+            let offset = sec.offsetTop;
+            let height = sec.offsetHeight;
+            let id = sec.getAttribute('id');
+
+            if (top >= offset - 100 && top < offset + height - 100) {
+                const target = document.querySelector(`[href='#${id}']`);
+                activeLink(target);
+                document.querySelector('.ship-moves').classList.add(`active-${index}`);
+            } else {
+                document.querySelector('.ship-moves').classList.remove(`active-${index}`);
+            }
+        });
+        function onScroll2() {
+            var scrollPos = $(document).scrollTop();
+
+            window.onscroll = () => {
+                sections.forEach((sec, index) => {
+                    let top = window.scrollY;
+                    let offset = sec.offsetTop;
+                    let height = sec.offsetHeight;
+                    let id = sec.getAttribute('id');
+
+                    if (top >= offset - 100 && top < offset + height - 100) {
+                        const target = document.querySelector(`[href='#${id}']`);
+                        activeLink(target);
+                        document.querySelector('.ship-moves').classList.add(`active-${index}`);
+                    } else {
+                        document.querySelector('.ship-moves').classList.remove(`active-${index}`);
+                    }
+                })
+            };
+        }
+        function activeLink(li) {
+            menuItems.forEach((item) => item.classList.remove('active'));
+            li.classList.add('active');
+        }
+
+
+        onScroll2();
+        $(document).on("scroll", onScroll2);
+// Get all sections that have an ID defined
+
+
+// Add an event listener listening for scroll
+        menuItems.forEach((btn) => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                let link = btn.getAttribute("href");
+
+
+                document.body.classList.remove('no-scroll');
+                $([document.documentElement, document.body]).animate({
+                    scrollTop: $(link).offset().top + Number(btn.dataset.off)
+                }, 600);
+            })
+        });
+    }
+}
+
+ifHaveShips();
+
+
+
+// Получаем нужный элемент
+var elementBtns = document.querySelector('.case-hero__top');
+
+var Visible = function (target) {
+    if (!elementBtns) {
+
+    } else {
+        var targetPosition = {
+                top: window.pageYOffset + target.getBoundingClientRect().top,
+                left: window.pageXOffset + target.getBoundingClientRect().left,
+                right: window.pageXOffset + target.getBoundingClientRect().right,
+                bottom: window.pageYOffset + target.getBoundingClientRect().bottom
+            },
+            // Получаем позиции окна
+            windowPosition = {
+                top: window.pageYOffset + 80,
+                left: window.pageXOffset,
+                right: window.pageXOffset + document.documentElement.clientWidth,
+                bottom: window.pageYOffset + document.documentElement.clientHeight
+            };
+
+        if (targetPosition.bottom > windowPosition.top && // Если позиция нижней части элемента больше позиции верхней чайти окна, то элемент виден сверху
+            targetPosition.top < windowPosition.bottom && // Если позиция верхней части элемента меньше позиции нижней чайти окна, то элемент виден снизу
+            targetPosition.right > windowPosition.left && // Если позиция правой стороны элемента больше позиции левой части окна, то элемент виден слева
+            targetPosition.left < windowPosition.right) { // Если позиция левой стороны элемента меньше позиции правой чайти окна, то элемент виден справа
+            // Если элемент полностью видно, то запускаем следующий код
+            document.querySelector('.map-ship').classList.remove('show');
+        } else {
+            // Если элемент не видно, то запускаем этот код
+            document.querySelector('.map-ship').classList.add('show');
+        }
+        ;
+    }
+    // Все позиции элемента
+
+};
+window.addEventListener('scroll', function () {
+    Visible(elementBtns);
+
+});
+
+// А также запустим функцию сразу. А то вдруг, элемент изначально видно
+Visible(elementBtns);
+
+var elementBtns2 = document.querySelector('.footer-bot');
+
+var Visible2 = function (target) {
+    if (!elementBtns2) {
+
+    } else {
+        var targetPosition = {
+                top: window.pageYOffset + target.getBoundingClientRect().top,
+                left: window.pageXOffset + target.getBoundingClientRect().left,
+                right: window.pageXOffset + target.getBoundingClientRect().right,
+                bottom: window.pageYOffset + target.getBoundingClientRect().bottom
+            },
+            // Получаем позиции окна
+            windowPosition = {
+                top: window.pageYOffset + 80,
+                left: window.pageXOffset,
+                right: window.pageXOffset + document.documentElement.clientWidth,
+                bottom: window.pageYOffset + document.documentElement.clientHeight
+            };
+
+        if (targetPosition.bottom > windowPosition.top && // Если позиция нижней части элемента больше позиции верхней чайти окна, то элемент виден сверху
+            targetPosition.top < windowPosition.bottom && // Если позиция верхней части элемента меньше позиции нижней чайти окна, то элемент виден снизу
+            targetPosition.right > windowPosition.left && // Если позиция правой стороны элемента больше позиции левой части окна, то элемент виден слева
+            targetPosition.left < windowPosition.right) { // Если позиция левой стороны элемента меньше позиции правой чайти окна, то элемент виден справа
+            // Если элемент полностью видно, то запускаем следующий код
+            document.querySelector('.map-ship').classList.remove('show');
+        } else {
+            // Если элемент не видно, то запускаем этот код
+            document.querySelector('.map-ship').classList.add('show');
+        }
+        ;
+    }
+    // Все позиции элемента
+
+};
+window.addEventListener('scroll', function () {
+    Visible(elementBtns2);
+
+});
+
+// А также запустим функцию сразу. А то вдруг, элемент изначально видно
+Visible2(elementBtns2);
+
