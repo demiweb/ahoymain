@@ -920,7 +920,10 @@
   }
   .all-services {
     padding-top: vw(43px);
-    padding-bottom: vw(150px);
+    padding-bottom: vw(100px);
+  }
+  .all-services__cont {
+    padding-bottom: 50px;
   }
   .all-services__text {
     width: 100%;
@@ -1044,6 +1047,9 @@
   }
   .all-services__cont {
     overflow: hidden;
+  }
+  .about-us__island .island-ship {
+    display: none;
   }
   .island-ship {
     display: none;
@@ -1226,7 +1232,11 @@
       justify-content: center;
       gap: vw(15px);
 
-      .single-dot {
+      .single-dot, .swiper-pagination-bullet {
+        background: rgba(255, 255, 255, 0);
+        border-radius: 0;
+        border: none;
+        opacity: 1;
         width: vw(25px);
         height: vw(25px);
         cursor: pointer;
@@ -1333,7 +1343,7 @@
   }
   .all-services {
     &.all-services--about {
-      padding-bottom: vw(123px);
+      padding-bottom: vw(73px);
     }
   }
 
@@ -1910,7 +1920,18 @@
     }
   }
   .case-brief__content {
+    display: flex !important;
     max-width: vw(303px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease-in-out !important;
+    transition-delay:  0s !important;
+
+  }
+  .case-brief__head.open~.case-brief__content {
+    opacity: 1;
+    pointer-events: auto;
+    transition-delay:  0.3s !important;
 
   }
   .case-brief__content .form .wpcf7-form-control-wrap {
@@ -2331,7 +2352,19 @@
       }
     }
   }
+  .case-challenge-map {
+    z-index: 4 !important;
+  }
   .map-ship {
     display: none;
+  }
+  .home-2 .main-home {
+    mask-image: none !important;
+  }
+  .home-2 .home-main-block {
+    margin-top: 0;
+  }
+  .case-study::before {
+    background: url('../img/bg-second1.svg') no-repeat top center/100%;
   }
 }
