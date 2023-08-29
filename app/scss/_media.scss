@@ -229,6 +229,7 @@
   .home-main-block__container {
     padding-top: vw(81px);
     padding-bottom: vw(200px);
+    margin-top: 0 !important;
   }
   .our-clients {
     flex-direction: column;
@@ -252,6 +253,19 @@
   }
   .our-clients__right {
     display: none;
+  }
+  .modal-window {
+    padding: vw(35px) vw(30px);
+
+    .modal-container {
+      width: 100%;
+      height: 100%;
+      max-height: 100%;
+    }
+    .modal-close {
+      width: 35px;
+      height: 35px;
+    }
   }
   .our-clients__swiper {
     width: 100%;

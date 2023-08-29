@@ -663,10 +663,54 @@ body {
   .main-home {
     mask-image: url('../img/mask-test3312.png') !important;
     mask-position: 0 0;
-    mask-size: 100%;
+    mask-size: 100% 157vh;
     padding-bottom: vw(400px);
     margin-bottom: vw(-400px);
   }
+
+
+  @media screen and (min-width: 767px) {
+    &.home-3 {
+      .main-home {
+        mask-image: none !important;
+        overflow: hidden;
+      }
+
+      .home-big-block {
+        height: 100vh;
+        overflow: visible;
+      }
+
+      .home-back-block {
+        position: relative;
+        margin-top: -100vh;
+        height: vw(5000px);
+      }
+
+      .home-main-block {
+        padding-bottom: 0;
+        margin-bottom: 0;
+        clip-path: url(#shape-mask);
+        position: fixed;
+        z-index: 11;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding-top: vw(496px);
+        margin-top: 0;
+
+        .home-main-block__container {
+          height: auto;
+        }
+      }
+
+      .home-big-block {
+
+      }
+    }
+  }
+
 
   .home-back-block {
     overflow: hidden;
@@ -5881,48 +5925,57 @@ body {
     .island-ship {
       animation: ship1 6s ease-in-out infinite;
     }
-    .island-turtles{
+
+    .island-turtles {
       .swiper-slide {
         &:nth-child(1) {
           .turtle {
             animation: turtle1 8s ease-in-out infinite;
           }
         }
+
         &:nth-child(2) {
           .turtle {
             animation: turtle2 8s ease-in-out infinite;
           }
         }
+
         &:nth-child(3) {
           .turtle {
             animation: turtle3 8s ease-in-out infinite;
           }
         }
+
         &:nth-child(4) {
           .turtle {
             animation: turtle4 8s ease-in-out infinite;
           }
         }
+
         &:nth-child(5) {
           .turtle {
             animation: turtle5 8s ease-in-out infinite;
           }
         }
+
         &:nth-child(6) {
           .turtle {
             animation: turtle6 8s ease-in-out infinite;
           }
         }
+
         &:nth-child(7) {
           .turtle {
             animation: turtle7 8s ease-in-out infinite;
           }
         }
+
         &:nth-child(8) {
           .turtle {
             animation: turtle8 8s ease-in-out infinite;
           }
         }
+
         &:nth-child(9) {
           .turtle {
             animation: turtle9 8s ease-in-out infinite;
@@ -6148,4 +6201,89 @@ select:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0) inset;
   background: url("../img/bg-input1.svg") no-repeat center/ 100% 100% !important;
   transition: background-color 0s ease-in-out 0s;
+}
+
+.modal-window {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  padding: vw(20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+
+  &.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .backplate {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(158, 31, 99, 0.53);
+  }
+  .modal-cont {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    max-height: 100%;
+  }
+  .modal-container {
+    max-height: calc(100% - 40px);
+    width: vw(1500px);
+    height: vw(600px);
+    position: relative;
+    z-index: 2;
+    display: flex;
+    margin: auto;
+    background: #fff;
+    border-radius: 10px;
+
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .modal-close {
+    cursor: pointer;
+    width: vw(52px);
+    height: vw(52px);
+    background: #fff;
+    border: vw(4px) solid #000;
+    filter: drop-shadow(2px 2px 0 rgba(158, 31, 99, 1)) drop-shadow(-2px -2px 0 rgba(158, 31, 99, 1)) drop-shadow(2px -2px 0 rgba(158, 31, 99, 1)) drop-shadow(-2px 2px 0 rgba(158, 31, 99, 1));
+    box-shadow: 0 0 0 3px #ffcc33;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    transform: translate(50%, -50%);
+
+    span {
+      display: inline-block;
+      background: rgba(158, 31, 99, 1);
+      height: vw(6px);
+      width: 80%;
+      border-radius: 20px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+
+      &:nth-child(2) {
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+    }
+
+  }
 }

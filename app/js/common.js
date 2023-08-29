@@ -23,11 +23,11 @@ function mainBlockScroll() {
         mainBlock.style.maskPosition = `0 ${pg}px`;
         mainBlock.style.webkitMaskPosition = `0 ${pg}px`;
 
-        console.log(mainBlock.scrollTop);
+        // console.log(mainBlock.scrollTop);
 
         window.addEventListener('scroll', () => {
             pg = window.pageYOffset - 200;
-            console.log(pg);
+            // console.log(pg);
             mainBlock.style.maskPosition = `0 ${pg}px`;
             mainBlock.style.webkitMaskPosition = `0 ${pg}px`;
         })
@@ -35,6 +35,29 @@ function mainBlockScroll() {
 }
 
 mainBlockScroll();
+
+
+let maximus = document.querySelector('.home-3 .home-main-block__container');
+// let homeHero = document.querySelector('.home-hero');
+
+function scrollMapBlock() {
+    if (maximus) {
+        let pg = window.pageYOffset;
+
+        maximus.style.marginTop = `-${pg}px`;
+
+        // console.log(mainBlock.scrollTop);
+
+        window.addEventListener('scroll', () => {
+            pg = window.pageYOffset;
+            // console.log(pg);
+            maximus.style.marginTop = `-${pg}px`;
+        })
+    }
+}
+
+scrollMapBlock();
+
 
 //hovering stuff
 
@@ -1364,4 +1387,88 @@ window.addEventListener('scroll', function () {
 
 // А также запустим функцию сразу. А то вдруг, элемент изначально видно
 Visible2(elementBtns2);
+
+
+
+let btnMod = [...document.querySelectorAll('.btn-mod')];
+let modals = [...document.querySelectorAll('.modal-window')];
+let closeModal = [...document.querySelectorAll('.modal-close')];
+let clsSecModal = [...document.querySelectorAll('.modal-window .cls')];
+let backplates = [...document.querySelectorAll('.backplate')];
+
+function controlModal() {
+    if (btnMod.length) {
+        btnMod.forEach((btn) => {
+            let data = btn.dataset.mod;
+
+            btn.addEventListener('click', (e) => {
+
+                e.preventDefault();
+                e.stopPropagation();
+
+                if (document.querySelector('.modal-window.visible')) {
+                    document.querySelector('.modal-window.visible').classList.remove('visible');
+                }
+                modals.forEach((mod) => {
+                    if (mod.dataset.modal === data) {
+                        document.body.classList.add('no-scroll');
+
+                        mod.classList.add('visible');
+                        if (mod.querySelector('.main-title')) {
+                            setTimeout(() => {
+                                mod.querySelector('.main-title').classList.add('done');
+
+                            }, 500);
+                        }
+                        if (mod.classList.contains('modal-video')) {
+                            mod.querySelector('iframe').src = btn.dataset.link;
+                        }
+                    }
+                })
+            })
+        });
+
+
+        closeModal.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                btn.closest('.modal-window').classList.remove('visible');
+                document.body.classList.remove('no-scroll');
+                if (btn.closest('.modal-window').classList.contains('video')) {
+                    btn.closest('.modal-window').querySelector('.video-cont').classList.remove('playing');
+
+                    btn.closest('.modal-window').querySelector('.video-cont').innerHTML = '';
+                }
+            })
+        });
+        backplates.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                btn.closest('.modal-window').classList.remove('visible');
+                document.body.classList.remove('no-scroll');
+
+                if (btn.closest('.modal-window').classList.contains('video')) {
+                    btn.closest('.modal-window').querySelector('.video-cont').classList.remove('playing');
+                    btn.closest('.modal-window').querySelector('.video-cont').innerHTML = '';
+                }
+            })
+        });
+        if (clsSecModal.length) {
+            clsSecModal.forEach((btn) => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    btn.closest('.modal-window').classList.remove('visible');
+                    document.body.classList.remove('no-scroll');
+                    if (btn.closest('.modal-window').classList.contains('video')) {
+                        btn.closest('.modal-window').querySelector('.video-cont').classList.remove('playing');
+
+                        btn.closest('.modal-window').querySelector('.video-cont').innerHTML = '';
+                    }
+
+                })
+            });
+        }
+    }
+}
+
+controlModal();
 
