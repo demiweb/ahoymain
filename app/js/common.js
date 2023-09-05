@@ -883,6 +883,59 @@ function startHomeTurtle() {
 
 startHomeTurtle();
 
+let lobbySwiper = [...document.querySelectorAll('.lobby-hero')];
+
+function startLobbySwiper() {
+    if (!lobbySwiper.length) {
+
+    } else {
+
+
+        lobbySwiper.forEach((sld) => {
+            let sldCont = sld.querySelector('.swiper');
+            let sldNext = sld.querySelector('.service-button.next');
+            let sldPrev = sld.querySelector('.service-button.prev');
+
+            const swiper2 = new Swiper(sldCont, {
+                // Optional parameters
+                loop: false,
+                slidesPerView: 1,
+                slidesPerGroup: 1,
+                speed: 700,
+                centeredSlides: false,
+                touchRatio: 1,
+                touchAngle: 180,
+                simulateTouch: true,
+
+                followFinger: true,
+                allowTouchMove: true,
+                threshold: true,
+                touchMoveStopPropagation: true,
+                touchStartPreventDefault: true,
+                touchStartForcePreventDefault: true,
+                touchReleaseOnEdges: true,
+
+                resistance: true,
+                resistanceRatio: 0.3,
+                cssMode: false,
+                initialSlide: 2,
+                navigation: {
+                    nextEl: sldNext,
+                    prevEl: sldPrev,
+                },
+                autoplay: false,
+                spaceBetween: 25,
+
+
+            });
+
+
+        })
+
+    }
+}
+
+startLobbySwiper();
 
 let motherSlider = [...document.querySelectorAll('.mothership-slider')];
 

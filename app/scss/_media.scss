@@ -1366,8 +1366,19 @@
     padding-top: vw(120px);
     height: 100vh;
   }
+  .swiper-lobby {
+    width: vw(330px);
+    margin-left: vw(-15px);
+    margin-right: vw(-15px);
+    height: auto;
+    .swiper-slide {
+      padding: 0;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
   .service-hero__block {
-    width: vw(300px);
+    width: 100%;
     height: auto;
     padding-top: vw(298px);
 

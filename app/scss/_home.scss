@@ -3536,10 +3536,29 @@ body {
   justify-content: center;
   margin-bottom: 0;
 }
-
-.service-hero__block {
+.swiper-lobby {
   height: vw(597px);
-  width: vw(785px);
+  width: vw(1185px);
+  .swiper {
+    width: 100%;
+    height: 100%;
+
+  }
+  .swiper-wrapper {
+    width: 100%;
+    height: 100%;
+
+  }
+  .swiper-slide {
+    width: 100%;
+    height: 100%;
+    padding-left: vw(200px);
+    padding-right: vw(200px);
+  }
+}
+.service-hero__block {
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
@@ -3666,6 +3685,9 @@ body {
   right: vw(130px);
   cursor: pointer;
   display: flex;
+  &.swiper-button-disabled {
+    opacity: 0.3;
+  }
 
   svg {
     width: 100%;
