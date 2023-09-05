@@ -898,7 +898,7 @@ function startLobbySwiper() {
 
             const swiper2 = new Swiper(sldCont, {
                 // Optional parameters
-                loop: false,
+                loop: true,
                 slidesPerView: 1,
                 slidesPerGroup: 1,
                 speed: 700,
